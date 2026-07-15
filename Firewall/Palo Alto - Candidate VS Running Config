@@ -1,8 +1,0 @@
-# Understanding Candidate vs Running Config
-
-Palo Alto works with two configuration sets.
-
-1. running-config
-2. candidate-config
-
-Any modifications you make through the GUI or CLI are applied to the candidate-config, leaving your running-config unaffected. This allows you to make changes without impacting your network. Once you are confident with your changes, you can ‘commit’ them, which merges the changes into the running-config.

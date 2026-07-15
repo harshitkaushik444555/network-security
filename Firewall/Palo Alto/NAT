@@ -1,0 +1,26 @@
+# Source NAT
+
+There are three types of Source NAT in Palo Alto firewall
+1. Dynamic IP and Port
+2. Dynamic IP: which allows a one-to-one dynamic translation of a source IP address (without modifying the port number) to the next available address in the NAT address pool. The size of the NAT pool must match the number of internal hosts that need address translations. By default, if the number of internal hosts exceeds the size of the NAT address pool and all NAT addresses are allocated, new connections requiring address translation will be dropped.
+3. Static IP
+
+# Destination NAT
+
+For NAT Policy
+-Pre NAT (Packet) IP
+-Source Zone: Outside
+-Desination Zone: Outside
+
+In Original Packet tab use Pre NAT zone and Pre NAT IP 
+
+For Security Policy
+-Source Zone: Outside
+In security policy use pre NAT IPs  and post NAT zone.
+Note: For zone in security policy- Where the server or device really lives.
+
+# Bi-Directional NAT 
+Bi-Directional NAT is like combining Source NAT and Destination NAT into a single configuration. Using our previous Destination NAT example, remember that the NAT will only work if someone initiates traffic from the Internet towards your server. If the server itself wants to initiate traffic, such as performing DNS lookups or accessing updates, you'll still need a Source NAT rule to translate the server's source IP.
+
+# U-Turn NAT
+U-Turn NAT is used when internal users need to access an internal server using the server’s external public IP address.

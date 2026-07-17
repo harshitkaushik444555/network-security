@@ -1,0 +1,10 @@
+# Single Pass Parallel Processing (SP3) Architecture
+
+It contains two components
+-Single Pass Software
+-Parallel Processing Hardware
+
+Single Pass Software
+Palo Alto Networks Single Pass software is designed to accomplish two key functions within the Palo Alto Networks next-generation firewall. First, the single pass software performs operations once per packet. As a packet is processed, networking functions, policy lookup, application identification and decoding, and signature matching for any and all threats and content are all performed just once. This significantly reduces the amount of processing overhead required to perform multiple functions in one security device. Second, the content scanning step in Palo Alto Networks’ Single Pass software is stream-based, and uses uniform signature matching to detect and block threats.  Instead of using separate engines and signature sets (requiring multi-pass scanning) and instead of using file proxies (requiring file download prior to scanning), the single pass software in our next-generation firewalls scans content once and in a stream-based fashion to avoid latency introduction.
+
+This Single Pass traffic processing enables very high throughput and low latency – with all security functions active.  It also offers the additional benefit of a single, fully integrated policy, enabling simple, easier management of enterprise network security.

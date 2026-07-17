@@ -1,0 +1,101 @@
+# Types of backup in Palo Alto FW
+1. Running Configuration
+-Current active configuration
+-Export as an XML file
+-Most commonly used backup
+
+2. Named Configuration Snapshot
+-Saved copy of the configuration
+-Used for keeping multiple versions
+
+3. Device state backup
+-Contains:
+Configuration, Licenses, Certificates, Dynamic updates, Device information
+-Used for disaster recovery or replcing a firewall
+
+# Backup Procedure from GUI
+-Path
+Device -> Setup -> Operations
+
+-Save a Named Configuration Snapshot
+Click Save named configuration snapshot.
+Enter a file name.
+Click OK.
+
+-Export the Configuration
+Go to Device → Setup → Operations.
+Click Export named configuration snapshot.
+Select the snapshot.
+Download the XML file.
+
+# Restore Procedure from GUI
+
+-Import the configuration 
+Device
+→ Setup
+→ Operations
+→ Import named configuration snapshot
+-> Upload the XML file
+
+Load the Configuration
+Device
+→ Setup
+→ Operations
+→ Load named configuration snapshot
+-> Select the uploaded configuration
+
+click commit to apply the restored configuration.
+
+# Device State Backup
+
+-Export
+
+Device
+→ Setup
+→ Operations
+→ Export Device State
+
+-Import
+
+Device
+→ Setup
+→ Operations
+→ Import Device State
+
+# Best Practices
+Always take a backup before:
+Software upgrades
+Security policy changes
+NAT changes
+Routing changes
+HA changes
+Use meaningful file names with dates.
+Store backups on a secure server (SCP/SFTP preferred).
+Verify that the backup file is complete after downloading.
+Keep multiple backup versions instead of overwriting old ones.
+
+# Important Interview Points
+
+-Running Configuration
+Active configuration currently in use.
+
+-Candidate Configuration
+Uncommitted changes waiting for a commit.
+
+-Named Configuration Snapshot
+Saved version of the configuration.
+
+-Device State Backup
+Includes configuration, licenses, certificates, and more for disaster recovery.
+
+After Restoring
+-Import → Load → Commit (for configuration restores).
+
+
+# Questions
+
+What is the difference between Import and Load during restore?
+Answer:
+Import: Uploads the backup file to the firewall.
+Load: Makes the uploaded configuration the current candidate configuration.
+Commit: Applies it as the running configuration.

@@ -8,3 +8,50 @@ Single Pass Software
 Palo Alto Networks Single Pass software is designed to accomplish two key functions within the Palo Alto Networks next-generation firewall. First, the single pass software performs operations once per packet. As a packet is processed, networking functions, policy lookup, application identification and decoding, and signature matching for any and all threats and content are all performed just once. This significantly reduces the amount of processing overhead required to perform multiple functions in one security device. Second, the content scanning step in Palo Alto Networks’ Single Pass software is stream-based, and uses uniform signature matching to detect and block threats.  Instead of using separate engines and signature sets (requiring multi-pass scanning) and instead of using file proxies (requiring file download prior to scanning), the single pass software in our next-generation firewalls scans content once and in a stream-based fashion to avoid latency introduction.
 
 This Single Pass traffic processing enables very high throughput and low latency – with all security functions active.  It also offers the additional benefit of a single, fully integrated policy, enabling simple, easier management of enterprise network security.
+
+Single Pass Software Architecture is one of Palo Alto Networks' key technologies. It means the firewall processes network traffic through one integrated inspection engine instead of passing the same traffic through multiple separate security engines.
+
+Palo Alto uses a single integrated processing architecture:
+
+              Packet Arrives
+                    |
+                    v
+          Single Pass Inspection Engine
+                    |
+      --------------------------------
+      |              |               |
+    App-ID        Content-ID       User-ID
+      |              |               |
+      --------------------------------
+                    |
+                    v
+          Security Policy Decision
+                    |
+                    v
+              Forward / Block
+
+The firewall simultaneously performs:
+
+App-ID:
+  Detect Microsoft Teams
+User-ID:
+  Identify user
+Content-ID:
+  Scan for threats
+
+# Parallel Processing Hardwar
+
+Parallel Processing Hardware (Network Processors + Security Processors) - The hardware uses multiple dedicated processors, each optimized for specific tasks:
+
+
+Network Processing (NPU): Handles packet forwarding and networking functions.          
+Security Processing (SPU): Performs content inspection, threat prevention, and decryption.
+Management Processor (MP): Oversees configuration, logs, and policy management.
+These processors work in parallel, ensuring that high throughput is maintained even when all advanced security features are enabled.
+
+
+# Questions
+Q: What is Single Pass Architecture in Palo Alto?
+
+Answer:
+"Single Pass Architecture is Palo Alto Networks' traffic processing method where App-ID, User-ID, and Content-ID technologies inspect traffic together in one integrated processing path. It eliminates multiple inspection passes, improves performance, reduces latency, and allows security policies to make decisions based on applications, users, and content."

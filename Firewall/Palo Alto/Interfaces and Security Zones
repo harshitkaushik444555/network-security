@@ -1,0 +1,27 @@
+# Firwall can have following intercaes
+
+-L2 Interface
+-L3 Interface
+-VLAN Interface
+-Sub Inteface
+-Tunnel Interface
+-Loopback Interface
+-TAP Interface [TAP Mode]
+-VWire Interface
+-HA Interface
+
+Note: In every type of intefaces you have to configure zones except HA inteface.
+
+
+# Secuity Zones
+Security zone is the logical gouping of network interfaces and these inerfaces can be of any types except the HA that represent a network segment with the security requirements which is going to be similar. A zone can have multiple interfaces of the same type assigned to it (such as tap, layer 2, or layer 3 interfaces), but an interface can belong to only one zone.
+Policy rules on the firewall use security zones to identify where the traffic comes from and where it is going. Traffic can flow freely within a zone but traffic cannot flow between different zones until you define a Security policy rule that allows it. To allow or deny inter-zone traffic, Security policy rules must reference a source zone and destination zone (not interfaces) and the zones must be of the same type; that is, a Security policy rule can allow or deny traffic from one Layer 2 zone only to another Layer 2 zone.
+
+Predefined policies: 
+1- Intrazone Policy = Allowed all
+2- Interzone Policy = Blocked all
+
+Note: 
+1- If there is no routing then no packet processing is going to happen.
+2- No security policy then no communicaton.
+3- NAT(optional) (mandatory for internet communicaton)

@@ -1,0 +1,14 @@
+ACL understands L2, L3, L4 only 3 things while Security policy understands L2, L3, L4, L7, UL, User ID, Device ID, Payload traffic. Palo Alto does not support ACL. It supports Policy.
+
+#Rule Type
+-Universal(default) -> 99% time. It allows you to create policy fo both interzone & intrazone.
+-Interzone - different zones.
+-Intrazone - same source and destination zone by default.
+
+
+-To go from  private network to internet we need following 3 things.
+1)Routing
+2)NAT Policy
+3)Security Policy
+
+-There are 10 lakh+ route available on internet. If you try to get these routs on your FW then your firewall might be crashed. So we use default route concept i.e. 0.0.0.0/0 inside static route and use ISP address in our next hop address ISP routes are very powerful and robust
